@@ -24,6 +24,9 @@ public class OrderITMRequest {
     private int server;
     private int cartridge;
     private int software;
+    private int lan;
+    private int wifi;
+    private int securitySystem;
     private String workDescription;
     private String startDate;
     private String endDate;

@@ -69,6 +69,14 @@ public class UserService {
             newOrderITMRequest.setServer(orderITMRequest.getServer());
             newOrderITMRequest.setCartridge(orderITMRequest.getCartridge());
             newOrderITMRequest.setSoftware(orderITMRequest.getSoftware());
+            newOrderITMRequest.setLan(orderITMRequest.getLan());
+            newOrderITMRequest.setWifi(orderITMRequest.getWifi());
+            newOrderITMRequest.setSecuritySystem(orderITMRequest.getSecuritySystem());
+            newOrderITMRequest.setWorkDescription(orderITMRequest.getWorkDescription());
+            newOrderITMRequest.setStartDate(orderITMRequest.getStartDate());
+            newOrderITMRequest.setEndDate(orderITMRequest.getEndDate());
+            newOrderITMRequest.setCity(orderITMRequest.getCity());
+            newOrderITMRequest.setAddress(orderITMRequest.getAddress());
             orderITMRepository.save(newOrderITMRequest);
 
     }
