@@ -3,7 +3,6 @@ import com.example.wefix.model.OrderHSRequest;
 import com.example.wefix.model.OrderITMRequest;
 import com.example.wefix.model.User;
 import com.example.wefix.service.UserService;
-import com.example.wefix.views.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +14,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/login")
-    public User validateLogin(@RequestBody LoginRequest loginRequest)
+    @GetMapping("/login/{userId}/{password}")
+    public String validateLogin(@PathVariable String userId, @PathVariable String password)
     {
-        return userService.validateLogin(loginRequest);
+        return userService.validateLogin(userId,password);
+
     }
     @RequestMapping(method = RequestMethod.POST,value = "/signUp")
     public void addUser(@RequestBody User user)
@@ -33,9 +33,9 @@ public class UserController {
         return userService.getUsersById(id);
     }
     @GetMapping("/users")
-    public List<User> getUsers()
+    public String getUsers()
     {
-        return userService.getUsers();
+        return "true";
     }
 
 

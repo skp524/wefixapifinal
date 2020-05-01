@@ -5,7 +5,6 @@ import com.example.wefix.dao.UserRepository;
 import com.example.wefix.model.OrderHSRequest;
 import com.example.wefix.model.OrderITMRequest;
 import com.example.wefix.model.User;
-import com.example.wefix.views.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -41,9 +40,13 @@ public class UserService {
     userRepository.deleteById(id);
     }
 
-    public User validateLogin(LoginRequest loginRequest) {
-
-       return userRepository.findUserById(loginRequest.getContactNo());
+    public String validateLogin(String userId, String password) {
+        String flag="false";
+       User u= userRepository.findUserByEmailId(userId);
+       if (u.getEmailId().equals(userId) && u.getPassword().equals(password) ){
+           flag=u.getContactNo();
+       }
+       return flag;
     }
 
     public void addHSOrder(OrderHSRequest orderHSRequest) {
@@ -60,7 +63,7 @@ public class UserService {
         orderHSRepository.save(newOrderHSRequest);
     }
         public void addITMOrder(OrderITMRequest orderITMRequest) {
-       OrderITMRequest newOrderITMRequest=new OrderITMRequest();
+            OrderITMRequest newOrderITMRequest=new OrderITMRequest();
             newOrderITMRequest.setContactNo(orderITMRequest.getContactNo());
             newOrderITMRequest.setServiceType(orderITMRequest.getServiceType());
             newOrderITMRequest.setLaptop(orderITMRequest.getLaptop());

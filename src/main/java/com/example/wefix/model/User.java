@@ -16,6 +16,7 @@ public class User {
     @Id
     private int id;
     private String name;
+    @Id
     private String emailId;
     private String contactNo;
     private String password;
