@@ -20,6 +20,12 @@ public class UserController {
         return userService.validateLogin(userId,password);
 
     }
+    @GetMapping("/forgotPassword/{name}/{emailId}/{contactNo}")
+    public String forgotPassword(@PathVariable String name, @PathVariable String emailId,@PathVariable String contactNo)
+    {
+        return userService.forgotPassword(name,emailId,contactNo);
+
+    }
     @RequestMapping(method = RequestMethod.POST,value = "/signUp")
     public void addUser(@RequestBody User user)
     {

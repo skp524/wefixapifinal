@@ -83,4 +83,13 @@ public class UserService {
             orderITMRepository.save(newOrderITMRequest);
 
     }
+
+    public String forgotPassword(String name, String emailId, String contactNo) {
+        String flag="false";
+        User u= userRepository.findUserByEmailId(emailId);
+        if (u.getName().equals(name) && u.getEmailId().equals(emailId) && u.getContactNo().equals(contactNo) ){
+            flag=u.getPassword();
+        }
+        return flag;
+    }
 }
