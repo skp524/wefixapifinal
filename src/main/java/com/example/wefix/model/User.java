@@ -1,4 +1,7 @@
 package com.example.wefix.model;
+//Shashank Pandey
+//22/04/2020
+
 import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,11 +15,10 @@ import javax.persistence.Table;
 @ToString
 @Entity
 public class User {
-    @GeneratedValue
-    @Id
     private int id;
     private String name;
     private String emailId;
+    @Id
     private String contactNo;
     private String password;
 }

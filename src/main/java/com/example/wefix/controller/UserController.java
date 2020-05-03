@@ -1,4 +1,7 @@
 package com.example.wefix.controller;
+//Shashank Pandey
+//01/04/2020
+
 import com.example.wefix.model.OrderHSRequest;
 import com.example.wefix.model.OrderITMRequest;
 import com.example.wefix.model.User;
@@ -7,17 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/login/{userId}/{password}")
-    public String validateLogin(@PathVariable String userId, @PathVariable String password)
+    @GetMapping("/login/{contactNo}/{password}")
+    public String validateLogin(@PathVariable String contactNo, @PathVariable String password)
     {
-        return userService.validateLogin(userId,password);
+        return userService.validateLogin(contactNo,password);
 
     }
     @GetMapping("/forgotPassword/{name}/{emailId}/{contactNo}")

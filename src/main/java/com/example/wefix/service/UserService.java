@@ -8,6 +8,8 @@ import com.example.wefix.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+//Shashank Pandey
+//18/04/2020
 
 @Service
 public class UserService {
@@ -40,10 +42,10 @@ public class UserService {
     userRepository.deleteById(id);
     }
 
-    public String validateLogin(String userId, String password) {
+    public String validateLogin(String contactNo, String password) {
         String flag="false";
-       User u= userRepository.findUserByEmailId(userId);
-       if (u.getEmailId().equals(userId) && u.getPassword().equals(password) ){
+       User u= userRepository.findUserByContactNo(contactNo);
+       if (u.getContactNo().equals(contactNo) && u.getPassword().equals(password) ){
            flag=u.getContactNo();
        }
        return flag;
@@ -86,7 +88,7 @@ public class UserService {
 
     public String forgotPassword(String name, String emailId, String contactNo) {
         String flag="false";
-        User u= userRepository.findUserByEmailId(emailId);
+        User u= userRepository.findUserByContactNo(emailId);
         if (u.getName().equals(name) && u.getEmailId().equals(emailId) && u.getContactNo().equals(contactNo) ){
             flag=u.getPassword();
         }
